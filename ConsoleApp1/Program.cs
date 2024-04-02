@@ -20,6 +20,7 @@ namespace ConsoleApp1
             giftBoxes[0] = addressA;
             giftBoxes[1] = addressB;
             giftBoxes[2] = addressC;
+
             Console.WriteLine("giftBox Array Count : " + giftBoxes.Length);
 
             //List~
@@ -28,8 +29,17 @@ namespace ConsoleApp1
             giftBoxList.Add(addressB);//1
             giftBoxList.Add(addressC);//2
 
-            Console.WriteLine(giftBoxList[2].Letter);
             Console.WriteLine("giftbox List Count : " + giftBoxList.Count);
+
+            for (int i = 0; i < giftBoxList.Count; i++)
+            {
+                Console.WriteLine(giftBoxList[i].Letter);
+            }
+            foreach (GiftBox gift in giftBoxes)
+            {
+                Console.WriteLine(gift.Letter);
+            }
+
         }
 
         private static GiftBox GiftBoxMaker(string letter, int money)
