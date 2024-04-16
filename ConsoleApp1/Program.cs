@@ -1,56 +1,28 @@
-﻿
-namespace ConsoleApp1
+﻿namespace ConsoleApp1
 {
-    class GiftBox
-    {
-        public string Letter;
-        public int Money;
-    }
-
     internal class Program
     {
         static void Main(string[] args)
         {
-            GiftBox addressA = GiftBoxMaker("A 친구야 잘 지내지?", 110000);
-            GiftBox addressB = GiftBoxMaker("B 친구야 잘 지내지?", 120000);
-            GiftBox addressC = GiftBoxMaker("C 친구야 잘 지내지?", 130000);
+            Console.WriteLine("시작 부분");
 
-            GiftBox[] giftBoxes = new GiftBox[3];
-            GiftBox giftBox = giftBoxes[0];
-            giftBoxes[0] = addressA;
-            giftBoxes[1] = addressB;
-            giftBoxes[2] = addressC;
+            int aMoney = 10000;
+            int bMoney = aMoney;
+            aMoney = 20000;
+            Console.WriteLine("aMoney : " + aMoney);
+            Console.WriteLine("bMoney : " + bMoney);
 
-            Console.WriteLine("giftBox Array Count : " + giftBoxes.Length);
-
-            //List~
-            List<GiftBox> giftBoxList = new List<GiftBox>();
-            giftBoxList.Add(addressA);//0
-            giftBoxList.Add(addressB);//1
-            giftBoxList.Add(addressC);//2
-
-            Console.WriteLine("giftbox List Count : " + giftBoxList.Count);
-
-            for (int i = 0; i < giftBoxList.Count; i++)
+            GiftBox aGiftBox = new GiftBox()
             {
-                Console.WriteLine(giftBoxList[i].Letter);
-            }
-            foreach (GiftBox gift in giftBoxes)
-            {
-                Console.WriteLine(gift.Letter);
-            }
-
-        }
-
-        private static GiftBox GiftBoxMaker(string letter, int money)
-        {
-            GiftBox addresssA = new GiftBox()
-            {
-                Letter = letter,
-                Money = money
+                Letter = "안녕",
+                Money = 10000
             };
 
-            return addresssA;
+            GiftBox bGiftBox = aGiftBox;
+            aGiftBox.Money = 20000;
+            Console.WriteLine("aGiftBox : " + aGiftBox.Money);
+            Console.WriteLine("bGiftBox : " + bGiftBox.Money);
+
         }
     }
 }
